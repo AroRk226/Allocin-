@@ -1,0 +1,63 @@
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (242.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (242.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to NomDeTaMigration (20190801122630)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "year" integer, "genre" varchar, "synopsis" text, "director" varchar, "allocine_rating" float, "my_rating" integer, "already_seen" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190801122630"]]
+  [1m[35m (197.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-01 12:28:39.897153"], ["updated_at", "2019-08-01 12:28:39.897153"]]
+  [1m[35m (136.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20190801122927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("name", "year", "genre", "synopsis", "director", "allocine_rating", "my_rating", "already_seen", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Beowulf"], ["year", 1999], ["genre", "Fantastique, Action, Epouvante-horreur"], ["synopsis", " La Terre a traverse de nombreuses crises et cataclysmes. Les hommes vivent dans la peur et dans l'obscurite car les tenebres voilent desormais la lumiere du soleil. Dans cet univers hostile, erre un homme maudit et solitaire, Beowulf, fruit des amours interdites d'une mortelle avec le diable. Pour vaincre le monstre qui est en lui, Beowulf doit combattre le mal. Son plus redoutable adversaire est une creature tapie dans les combles d'une forteresse. Invincible, d'une sauvagerie sans nom, elle tue quotidiennement puis disparait des l'aube"], ["director", "Graham Baker"], ["allocine_rating", 2.0], ["my_rating", 4], ["already_seen", 1], ["created_at", "2019-08-01 12:44:36.097552"], ["updated_at", "2019-08-01 12:44:36.097552"]]
+  [1m[35m (176.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("name", "year", "genre", "synopsis", "director", "allocine_rating", "my_rating", "already_seen", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "L'exorciste"], ["year", 1974], ["genre", "Epouvante-horreur"], ["synopsis", " L'actrice Chris McNeil est inquiète au sujet de sa fillette Regan : après que l'on ait entendu des bruits curieux venant de sa chambre, la petite a changé, proférant de constantes insanités. Une force para-normale l'habite, qui coûte la vie au metteur en scène de Chris. Désespérée, cette dernière fait appel à deux exorcistes... "], ["director", "William Friedkin"], ["allocine_rating", 3.3], ["my_rating", 4], ["already_seen", 1], ["created_at", "2019-08-01 12:51:30.903963"], ["updated_at", "2019-08-01 12:51:30.903963"]]
+  [1m[35m (134.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("name", "year", "genre", "synopsis", "director", "allocine_rating", "my_rating", "already_seen", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "OSS 117"], ["year", 2006], ["genre", "Comédie, Action, Espionnage"], ["synopsis", "Égypte, 1955, le Caire est un véritable nid d'espions. "], ["director", "Michel Hazanavicius"], ["allocine_rating", 3.9], ["my_rating", 2], ["already_seen", 1], ["created_at", "2019-08-01 12:55:27.201932"], ["updated_at", "2019-08-01 12:55:27.201932"]]
+  [1m[35m (137.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("name", "year", "genre", "synopsis", "director", "allocine_rating", "my_rating", "already_seen", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "La nonne"], ["year", 2018], ["genre", "Horreur-Epouvante"], ["synopsis", "Etranges disparitions et meurtres dans une forêt..."], ["director", "Corin Hardy"], ["allocine_rating", 1.8], ["my_rating", 5], ["already_seen", 1], ["created_at", "2019-08-01 13:01:45.735662"], ["updated_at", "2019-08-01 13:01:45.735662"]]
+  [1m[35m (292.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Update (0.7ms)[0m  [1m[33mUPDATE "movies" SET "allocine_rating" = ?, "updated_at" = ? WHERE "movies"."id" = ?[0m  [["allocine_rating", 4.7], ["updated_at", "2019-08-01 13:07:05.534411"], ["id", 1]]
+  [1m[35m (130.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "genre" = ?, "updated_at" = ? WHERE "movies"."id" = ?[0m  [["genre", "comédie"], ["updated_at", "2019-08-01 13:08:13.340655"], ["id", 2]]
+  [1m[35m (138.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."already_seen" = ? LIMIT ?[0m  [["already_seen", 1], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."already_seen" = ? LIMIT ?[0m  [["already_seen", 0], ["LIMIT", 11]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Update (0.8ms)[0m  [1m[33mUPDATE "movies" SET "already_seen" = ?, "updated_at" = ? WHERE "movies"."id" = ?[0m  [["already_seen", 0], ["updated_at", "2019-08-01 13:09:58.651476"], ["id", 3]]
+  [1m[35m (178.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."already_seen" = ?[0m  [["already_seen", 0]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Destroy (0.5ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 1]]
+  [1m[35m (129.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
